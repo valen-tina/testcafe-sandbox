@@ -12,6 +12,7 @@ fixture `Google search`
 test('Search string', async t => {
     let query = "Hello, World!";
     await googlePage.makeSearch(query);
+    //use helper function to get current url:
     console.log(await getURL());
     await t.expect(await googlePage.firstLink.innerText).contains(query, `${query} is not found`, {timeout: 500});
 });
